@@ -6,7 +6,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :question, :null => false
       t.integer :answer_id #for best answer
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

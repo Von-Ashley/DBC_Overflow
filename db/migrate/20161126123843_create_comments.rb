@@ -3,9 +3,10 @@ class CreateComments < ActiveRecord::Migration
   	create_table :comments do |t|
       t.integer :user_id
       t.string :comment, :null => false
-      t.integer :commentable, polymorphic: true
+      t.string :commentable_type
+      t.integer :commentable_id, polymorphic: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

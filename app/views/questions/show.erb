@@ -1,0 +1,28 @@
+<h1><%= @question.title %></h1>
+<h2><%= @question.question %></h2>
+
+<h3>Answers</h3>
+<ol>
+  <%@answers.each do |answer| %>
+  <li>
+    <%= answer.answer %>
+    <ul>
+     <% answer.comments.each do |comment| %>
+      <li>
+          <%= comment.comment %>
+      </li>
+      <% end %>
+    </ul>
+  </li>
+  <% end %>
+</ol>
+
+<h3>Question Comments</h3>
+<ul>
+  <%@comments.each do |comment| %>
+  <li>
+
+    <%= comment.comment %>
+  </li>
+  <% end %>
+</ul>

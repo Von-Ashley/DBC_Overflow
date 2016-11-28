@@ -1,10 +1,24 @@
-<h1>This page will show one user</h1>
 
-<h1><%= @user.email %></h1>
+<h2>Welcome <%= @user.full_name %> </h2>
+
+
+
+<h3>Your questions</h3>
+<ol>
+  <% @user.questions.each do |question| %>
+    <li>
+      <a href="/questions/<%= question.id %>"><%= question.question %></a>
+    </li>
+  <% end %>
+ </ol>
+ 
 
 <a href="/users/<%= @user.id %>/edit">edit</a>
 
+
+
+
 <form action="/users/<%= @user.id %>" method="POST">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="DELETE">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="DELETE">
 </form>

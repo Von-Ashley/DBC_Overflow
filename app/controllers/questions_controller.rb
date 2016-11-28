@@ -20,24 +20,23 @@ post '/questions' do
   if @question.save
     redirect to '/questions'
   else
-    erb :'questions/new'
+    erb :'/questions/new'
   end
 
 end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
+
   @comments = @question.comments
   @answers = @question.answers
-  
+
   erb :'/questions/show'
 end
 
 post '/answers/:id' do
   @question = Question.find(params[:id])
-  params[:answer][:answer]
   @question.answers.create(user_id: session[:user_id], answer: params[:answer][:answer])
-
   redirect to "/questions/#{@question.id}"
 end
 

@@ -1,8 +1,24 @@
 
-<a href="/">Home</a>
+
 <%if !logged_in? %>
-	<a href="/login">Login</a>
+  <nav>
+    <div class="nav-wrapper purple darken-3">
+      <a href="#!" class="brand-logo center">UnStacked Overflow</a>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/users/new">Register</a></li>
+        <li class="active"><a href="/questions">Home</a></li>
+      </ul>
+    </div>
+  </nav>
 <% else %>
-	<a href="/logout">Logout</a>
-	<a href="/users/new">Register</a>
+  <nav>
+    <div class="nav-wrapper purple darken-3">
+      <a href="#!" class="brand-logo center">UnStacked Overflow</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/logout">Logout</a></li>
+        <li class="active"><a href="/questions">Home</a></li>
+      </ul>
+    </div>
+  </nav>
 <% end %>

@@ -3,13 +3,15 @@
 
 <h3>Answers</h3>
 <ol>
-  <%@answers.each do |answer| %>
+  <% @answers.each do |answer| %>
   <li>
     <%= answer.answer %>
+    <strong><em><%= answer.user.full_name %></em></strong>
     <ul>
      <% answer.comments.each do |comment| %>
       <li>
           <%= comment.comment %>
+          <strong><em><%= comment.user.full_name %></em></strong>
       </li>
       <% end %>
     </ul>
@@ -17,12 +19,18 @@
   <% end %>
 </ol>
 
+  <br>
+  <textarea rows="4" cols="50" name="answer[answer]" form="answer_form">Enter answer here...</textarea>
+  <form action='/answers/<%= @question.id %>' method="POST" id="answer_form">
+  <input type="submit" name="Answer Question!">
+  </form>
+
 <h3>Question Comments</h3>
 <ul>
   <%@comments.each do |comment| %>
   <li>
-
     <%= comment.comment %>
+    <strong><em><%= comment.user.full_name %></em></strong>
   </li>
   <% end %>
 </ul>
